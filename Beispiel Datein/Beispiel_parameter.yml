@@ -1,0 +1,32 @@
+Keithley:
+  com:      '/dev/ttyUSB1'
+  bd:       115200              
+  parity:   'N'
+  stopbits: 1
+  bytesize: 8
+  buffer_U: 'voltMeasBuffer'  
+
+Keysight:
+  VID:  0x2a8d
+  PID:  0x0396
+  amplitude: 12     # in V (Vpp) (Start)
+  funktion:  'SIN'  # Möglichkeiten: SINusoid, SQUare, RAMP, PULSe, NOISe, DC
+  channel:   1
+  sollwert:  0.6    # in V - zuhaltende Spannung am Widerstand
+  bereich:   0.01   # in V - Abweichung
+  berichtige_um:      0.1     # in V   - wird abgezogen oder addiert (Auf Bildschirm nur 0.1 Genauigkeit - Auslesbar ist aber auch z.B. 10.01 V)
+
+Frequenz:           # in Hz
+  start:    50
+  ende:     1000
+  schritt:  50
+  reverse:  True    # Bearbeitung der For-Schleife drehen! True geht hoch zu niedrig, False  geht niedrig zu hoch
+  
+Experiment_Aufbau: # Für die Text-Datei
+  spuleD:       20      # in mm
+  spuleN:       60      # Windungen
+  vorR:         50      # in Ohm
+  u_hall_Null:  2.0571  # in mV - Wird Manuel aufgenommen und zum merken hir eingetragen
+  Source_U:     5       # in V
+  Source_Lim_I: 200     # in mA
+  Source_Gerät: 'Keithley - 2450 Sourcemeter'

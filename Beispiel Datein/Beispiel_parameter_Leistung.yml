@@ -1,0 +1,14 @@
+Keysight:
+  VID:               0x2a8d
+  PID:               0x0396
+
+Channel:
+  Kurve_1:
+      channel_Number: 1
+      Label_Kurve:    'Spannung Vor.-Widerstand'
+  Kurve_2:  
+      channel_Number: 2
+      Label_Kurve:    'Wave-Generator'
+
+Messung:
+    Wann: Beginn_Profil_1

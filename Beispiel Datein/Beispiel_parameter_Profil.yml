@@ -1,0 +1,18 @@
+Keithley:
+  com:      '/dev/ttyUSB1'
+  bd:       115200              
+  parity:   'N'
+  stopbits: 1
+  bytesize: 8
+  buffer_U: 'voltMeasBuffer' 
+
+Experiment:
+  Ort:                      'Test-CZ'
+  Startposition:            'Mitte'
+  geschwindigkeit_gerade:   '10 mm/min'
+  geschwindigkeit_rotation: '10 °/min'
+  Source_U:     5       # in V
+  Source_Lim_I: 200     # in mA
+  Source_Gerät: 'Keithley - 2450 Sourcemeter'
+  Hall_U_Null:  2.2     # in mV
+  Eurotherm_OP: 5.5     # in %
