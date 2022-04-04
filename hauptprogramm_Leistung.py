@@ -81,9 +81,17 @@ for name, value in channels.items():
 
     with open(value.folder + '/' + value.FileOutName,'w', encoding='utf-8') as fo:
         fo.write(f'Aufnahme der Osziloskop Kurve - {value.Label} - Kanal {value.kanalnummer}\n\n')
-        fo.write(f'Zeitschritt = {value.time}\n')
-        wann = config['Messung']['Wann']
-        fo.write(f'Messung gemacht: {wann} - {wann_date} | {wann_actual}\n\n')
+        fo.write(f'Zeitschritt = {value.time}\n\n')
+        if 'Messung' in config: # So kann man auch einfach andere Kurven aufnehmen und mehr - Die Angaben sind für die Leistungsmessung gut
+            array_data = config['Messung']
+            wann, Korrektur_Spannung, Gerät_Spannung, Korrektur_Strom, Gerät_Strom = array_data.values()
+            fo.write('Aufbau der Messung und Einstellungen:\n')
+            fo.write('-------------------------------------\n')
+            fo.write(f'Messgerät Spannung: {Gerät_Spannung}\n')
+            fo.write(f'Korrekturfaktor U:  {Korrektur_Spannung}\n')
+            fo.write(f'Messgerät Stromes:  {Gerät_Strom}\n')
+            fo.write(f'Korrekturfaktor I:  {Korrektur_Strom}\n')
+            fo.write(f'Messung gemacht: {wann} - {wann_date} | {wann_actual}\n\n')
 
         for item in value.data:
             fo.write(f'{item}\n')

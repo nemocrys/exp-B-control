@@ -65,6 +65,10 @@ Seitenangaben beziehen sich auf das Dokument "DAQ6510-901-01B_Sept_2019_Ref.pdf"
 - verhindert eine Fehlermeldung wegen des Buffers auf dem Gerät
 - S. 1230
 
+2. *IDN?
+- Erfragung des Gerätenamens
+- S. 1228
+
 **Programmierung mit Python:**
 Beim senden eines Befehls wird am Ende des Befehls ein \n angehangen, was beim dekodieren wieder ausgefiltert wird. 
 

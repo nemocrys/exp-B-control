@@ -1,3 +1,5 @@
+# Vincent Funke
+
 from numpy import diff
 import serial
 import yaml
@@ -8,11 +10,11 @@ import time
 
 import usbtmc
 
-def Read_Ausgabe():                                                       
+def Read_Ausgabe():
     st = ''
     back = ser_py.readline().decode()
-    st = back.replace('\n', '')                         
-    return st 
+    st = back.replace('\n', '')
+    return st
 
 def um(value, value_unit, wish_unit):                  # Start der Funktion um (Umrechnung)
     einheit = ['nV', 'uV', 'mV', 'V', 'kV']            # Liste der möglichen Einheiten
@@ -29,14 +31,14 @@ def um(value, value_unit, wish_unit):                  # Start der Funktion um (
     return new_value
 
 # Parameterliste einlesen
-config_file = 'parameter.yml'  
-with open(config_file) as fi:   
+config_file = 'parameter_Kalibrierung.yml'
+with open(config_file) as fi:
     config = yaml.safe_load(fi)
 
 # Keysight initialisieren
-hVID = config['Keysight']['VID']   # Gibt die Werte in DEC zurück (funktioniert auch mit)
+hVID = config['Keysight']['VID']   # Gibt die Werte in DEC zurück
 hPID = config['Keysight']['PID']   # wenn es in das Hex-Format umgewandelt wird, erkennt das Instrument das nicht: usbtmc.usbtmc.UsbtmcException: Device not found [init]
-                                   
+
 instr =  usbtmc.Instrument(hVID, hPID) # wenn man anstatt hVID und hPID die Hex Zahlen die in parameter.yml stehen einträgt, klappt das Programm, sonst muss der DEC Wert übergeben werden (wie jetzt)
 name_KS = instr.ask("*IDN?")
 print(name_KS)
@@ -44,7 +46,7 @@ print('Keysight Gerät initialisiert!')
 
 # Keithley initialisieren
 array_data = config['Keithley']     # Dictionerie wird in der variable gespeichert
-com, bd, parity, stopbits, bytesize, buffer_U = array_data.values() # Übergabe nur der Werte 
+com, bd, parity, stopbits, bytesize, buffer_U = array_data.values() # Übergabe nur der Werte
 print(buffer_U)
 try:
     serial.Serial(port=com)
@@ -70,12 +72,12 @@ print('Keithley Gerät initialisiert!')
 ser_py.write((f':TRACe:MAKE "{buffer_U}", 10000\n').encode())
 
 # Frequenzbereich einlesen:
-array_data_F = config['Frequenz']    
+array_data_F = config['Frequenz']
 start, ende, schritt, reverse = array_data_F.values()
 
 # Einlesen der Spulen-Parameter bzw. auch Expriment-Werte:
-array_data_S = config['Experiment_Aufbau']    
-spuleD, spuleN, vorR, u_hall_Null, Source_U, Source_Lim_I, Source_Gerät = array_data_S.values() 
+array_data_S = config['Experiment_Aufbau']
+spuleD, spuleN, vorR, u_hall_Null, Source_U, Source_Lim_I, Source_Gerät = array_data_S.values()
 
 if reverse == True:         # Umdrehen der Frequenzabarbeitung (True von Hocher Frequenz zu niedriger - sonst andersrum)
     mstart = start
@@ -84,10 +86,10 @@ if reverse == True:         # Umdrehen der Frequenzabarbeitung (True von Hocher 
     start = mende
     ende = mstart
 
-    schritt = schritt * -1 
+    schritt = schritt * -1
 
 # Amplitude und Funktion bestimmen
-amp = config['Keysight']['amplitude']   
+amp = config['Keysight']['amplitude']
 funktion = config['Keysight']['funktion']
 channel = config['Keysight']['channel']
 sollwert = config['Keysight']['sollwert']
@@ -106,22 +108,22 @@ version = (
 )
 
 # File erstellen:
-actual_date = datetime.datetime.now().strftime('%Y_%m_%d')           
+actual_date = datetime.datetime.now().strftime('%Y_%m_%d')
 FileOutPrefix = actual_date
 FileOutIndex = str(1).zfill(2)
-FileOutName = '' 
+FileOutName = ''
 
 folder = 'Daten/Daten_vom_' + FileOutPrefix
-if not os.path.exists(folder):                                              
-    os.makedirs(folder)                                                     
+if not os.path.exists(folder):
+    os.makedirs(folder)
 
-FileOutName = FileOutPrefix + '_#' + FileOutIndex + '_volt.txt'            
+FileOutName = FileOutPrefix + '_#' + FileOutIndex + '_volt.txt'
 j = 1
-while os.path.exists(folder + '/' + FileOutName) :                         
-    j = j + 1                                                               
+while os.path.exists(folder + '/' + FileOutName) :
+    j = j + 1
     FileOutIndex = str(j).zfill(2)
     FileOutName = FileOutPrefix + '_#' + FileOutIndex + '_volt.txt'
-print ('Output data: ', FileOutName)  
+print ('Output data: ', FileOutName)
 
 with open(folder + '/' + FileOutName,'w', encoding='utf-8') as fo:
     fo.write('Messungen der Hall-Spannung/ Magnetfeldmessungen\n')
@@ -157,7 +159,7 @@ for n in range(start, ende + schritt, schritt):
     time.sleep(1)
     ak_Wert = instr.ask(":MEAS:VRMS? AC, CHAN" + str(channel))
     ak_Wert = float(ak_Wert)
-    
+
     while (ak_Wert > sollwert + bereich or ak_Wert < sollwert - bereich):
         if (ak_Wert > sollwert + bereich):
             ak_amp -= berichtige_um
@@ -173,7 +175,7 @@ for n in range(start, ende + schritt, schritt):
         instr.write(f':WGEN:VOLT {ak_amp}')
         ak_Wert = instr.ask(":MEAS:VRMS? AC, CHAN" + str(channel))
         ak_Wert = float(ak_Wert)
-        
+
     # Messung:
     ser_py.write((f':MEAS:VOLT:AC? "{buffer_U}", FORM\n').encode()) # wert auf Bildschirm wird ausgegeben!
     if n == start:          # Multimeter spinnt ein wenig beim ersten mal wenn es die Funktion zur Messung ändern soll!
@@ -183,7 +185,7 @@ for n in range(start, ende + schritt, schritt):
     hallvolt_in_V = um(float(teilung[0]), teilung[1], 'V')
     resvolt = ak_Wert                                            # kein String
     amplitude = instr.ask(":WGEN:VOLT?")
-    
+
     with open(folder + '/' + FileOutName,'a', encoding='utf-8') as fo:
         fo.write(f"{n:<15}{hallvolt_in_V:<30}{resvolt:<35}{amplitude:<30}\n")
 

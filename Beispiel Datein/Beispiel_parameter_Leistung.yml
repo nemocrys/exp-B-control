@@ -11,4 +11,8 @@ Channel:
       Label_Kurve:    'Wave-Generator'
 
 Messung:
-    Wann: Beginn_Profil_1
+    Wann:               Beginn_Profil_1
+    Korrektur_Spannung: 50
+    Gerät_Spannung:     'DP10013 Micsig'
+    Korrektur_Strom:    '10 mV/A'
+    Gerät_Strom:        'Rogowskispule MA 200'

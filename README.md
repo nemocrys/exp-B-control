@@ -1,4 +1,6 @@
 # exp-B-control
+Diese Programme wurden während der Bachelorarbeit von Vincent Funke am Institut für Kristallzüchtung (IKZ) erstellt.
+
 # Magnetic field control
 In dem Experiment sollen mit Hilfe drei Geräte das Magnetfeld von Spulen bestimmt werden. Die ersten Test und die Validierung sollen mit einer Helmholtzspule stattfinden.    
 Für das Experiment wurde eine neue Spule gewickelt und ein Stromverstärker gebaut. Dadurch soll es möglich sein größere Magnetfelder zu erzeugen. Die Experimente mit dem Stromverstärker waren nicht erfolgreich, weshalb man wieder auf einen Alten Aufbau zurückgegriffen hat. Bei dem Aufbau wurde der Hall-Sensor in eine Helmholtzspule mit 20 mm Durchmesser und 60 Windungen je Spulenteil gesteckt. Damit wurde dann eine Kalibrierung durchgeführt. 
@@ -16,11 +18,11 @@ Die Programm die im folgenden genannt werden arbeiten alle mit Spulen. Zum einen
 Das Programm wurde für die Kalibrierung eines Hall-Sensors mithilfe einer Helmholtzspule genutzt. Das Programm redet mit dem Multimeter von Keithley (DAQ) und dem Oszilloskop von Keysight. Über eine Parameterliste werden verschiedene Strings und Werte an das Programm übergeben.
 
 **Programm Ablauf:**
-1. Parameterliste (**parameter.yml**) auslesen und für das Programm verfügbar machen
+1. Parameterliste (**parameter_Kalibrierung.yml**) auslesen und für das Programm verfügbar machen
 2. Keysight Oszilloskop initialisieren 
     - VID und PID auslesen und übergeben
     - Identifikation (Name) abfragen und in Konsole ausgeben
-3. Keithley gerät initialisieren
+3. Keithley Gerät initialisieren
     - Schnittstelle initialisieren 
     - Geräte Reset ausführen
     - Geräte Namen ausgeben
@@ -54,7 +56,7 @@ Ist das Programm fertigt wird das durch eine Konsolenausgabe bestätigt.
 **Funktionen**    
 Die **Read_Ausgabe()** Funktion dient nur dem Auslesen des Multimeters.
 
-Da das Multimeter so ausgelesen wird, das der genaue Wert vom Bildschirm genommen wird, wird auch die Einheit mit ausgelesen. Über die Funktion **um()** kann man die Einheit in Volt umrechnen. Die Funktion stammt aus meinem Studium an der HTW aus dem Modul Softwartechnik, aus einer der Laboraufgaben. Die Funktion bekommt den Wert, die aktuelle Einheit und die Wunscheinheit. Über die Liste **einheit** funktioniert die Funktion. Zunächst wird der Listenplatz der Wunscheinheit und aktuellen Einheit gesucht. Aus der Differenz der beiden Werte mit 3 multipliziert erhält man die 10 Potenz zur Umrechnung. 
+Da das Multimeter so ausgelesen wird, das der genaue Wert vom Bildschirm genommen wird, wird auch die Einheit mit ausgelesen. Über die Funktion **um()** kann man die Einheit in Volt umrechnen. Die Funktion stammt aus meinem Studium an der HTW aus dem Modul Softwartechnik, aus einer der Laboraufgaben (von mir geschrieben). Die Funktion bekommt den Wert, die aktuelle Einheit und die Wunscheinheit. Über die Liste **einheit** funktioniert die Funktion. Zunächst wird der Listenplatz der Wunscheinheit und aktuellen Einheit gesucht. Aus der Differenz der beiden Werte mit 3 multipliziert erhält man die 10 Potenz zur Umrechnung. 
 
 Beispiel:    
 - gewollt sind V   
@@ -77,10 +79,6 @@ Mit dem Programm **Auswertung_Text-Datei.py** werden Diagramme zu dem erstellten
 
 Diagramm:    
 <img src="Bilder/Kalibrierung_1.png" alt="Kurven-Zeit" title="unbearbeitete Kalibrierungskurven über der Zeit" width=500/>
-
-Mit dem Programm **Magnetfeld_Kalibrierung_B_von_Hall-U.py** wird die Kurve B(U_Hall) erstellt. Es liest das gegebene File aus und speichert ein daraus erstelltes Diagramm und ein File mit den beiden Werten!
-
-<img src="Bilder/Kalibrierung_2.png" alt="Kurven-Zeit" title="B(U_Hall)" width=500/>
 
 ---
 
@@ -139,6 +137,10 @@ Die Struktur des Programmes stammt aus dem AutoTune Programmen der Emissivitäts
 Mit dem Programm **Profil_Zeit_Hall-Spannung.py** kann man durch Angabe in einem Dictionerie die Profil-Daten neben einander darstellen!
 
 Dafür werden die Kurven aus ihren Textdateien in einer Schleife ausgelesen und zusammen geplottet. Das Diagramm muss von Hand gespeichert werden. 
+
+Mit **Profil_Umrechnung.py** werden die Zeit Werte in einen Weg oder Winkel umgerechnet und ein Plot, sowie eine Text-Datei erstellt mit den neuen Daten. Weiterhin wird hier auch die Magnetische Flussdichte B aus der Hall-Spannung berechnet. 
+
+Das Programm **Profil_Kurvenschar_Weg-Rot_Magnetfeld.py** erstellt aus den neuen Kurven einen Plot mit allen ausgewählten bzw. angegebenen Kurven. #
 
 ---
 ## 2. Weiteres
