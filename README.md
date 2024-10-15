@@ -1,178 +1,221 @@
 # exp-B-control
-Diese Programme wurden während der Bachelorarbeit von Vincent Funke am Institut für Kristallzüchtung (IKZ) erstellt.
+These programs were created during Vincent Funke's bachelor thesis at the Institute for Crystal Growth (IKZ). The [Model Experiments Group](https://www.ikz-berlin.de/en/research/materials-science/section-fundamental-description#c486) was supported in this work. The topic of the thesis was:
 
-# Magnetic field control
-In dem Experiment sollen mit Hilfe drei Geräte das Magnetfeld von Spulen bestimmt werden. Die ersten Test und die Validierung sollen mit einer Helmholtzspule stattfinden.    
-Für das Experiment wurde eine neue Spule gewickelt und ein Stromverstärker gebaut. Dadurch soll es möglich sein größere Magnetfelder zu erzeugen. Die Experimente mit dem Stromverstärker waren nicht erfolgreich, weshalb man wieder auf einen Alten Aufbau zurückgegriffen hat. Bei dem Aufbau wurde der Hall-Sensor in eine Helmholtzspule mit 20 mm Durchmesser und 60 Windungen je Spulenteil gesteckt. Damit wurde dann eine Kalibrierung durchgeführt. 
-Schlussendlich soll dann auch noch in der Test-CZ Anlage das Magnetfeld mit Hilfe des Programms gemessen werden.
+*Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter*
 
-Zur Messung wird ein Hall-Sensor verwendet. Mit dem Sensor wird die Hall-Spannung gemessen. Diese Spannung wird dann für die Kalibrierung über eine Formel umgerechnet in die magnetische Flussdichte. Daraufhin kann man eine Kalibrierungskurve erstellen mit der dann die Messungen umgewandelt werden können. 
+## Experiment: Magnetic field control
 
-Mit dem Oszilloskop von Keysight sollen die Frequenzen und Amplituden verändert werden, das Multimeter von Keithley misst die Hall-Spannung und das Sourcemeter (nicht programmiert) liefert die Versorgungsspannung. 
+In the context of the experiment to control the magnetic field, two experiments were carried out:
 
----
-## 1. Programme
-Die Programm die im folgenden genannt werden arbeiten alle mit Spulen. Zum einen gibt es ein Programm zur Kalibrierung, zur Messung der Leistung der Spule und um Profile an der Test-CZ Spule aufzunehmen. Die Programm werden im folgenden erklärt.
+1. Calibration of a Hall sensor
+2. Magnetic field measurement in the facility (Test-CZ) of the model experiments group
 
-### 1.1. hauptprogramm_Kalibrierung.py
-Das Programm wurde für die Kalibrierung eines Hall-Sensors mithilfe einer Helmholtzspule genutzt. Das Programm redet mit dem Multimeter von Keithley (DAQ) und dem Oszilloskop von Keysight. Über eine Parameterliste werden verschiedene Strings und Werte an das Programm übergeben.
+Various devices are used for this, which can be found under the item [Supported devices](#Supported devices). The aim is to determine the magnetic field of coils.
 
-**Programm Ablauf:**
-1. Parameterliste (**parameter_Kalibrierung.yml**) auslesen und für das Programm verfügbar machen
-2. Keysight Oszilloskop initialisieren 
-    - VID und PID auslesen und übergeben
-    - Identifikation (Name) abfragen und in Konsole ausgeben
-3. Keithley Gerät initialisieren
-    - Schnittstelle initialisieren 
-    - Geräte Reset ausführen
-    - Geräte Namen ausgeben
-4. den Wertebuffer für Keithley erstellen
-5. die Bearbeitung der Frequenzen speichern
-6. Experiment-Daten auslesen und schauen ob Frequenz von groß zu klein oder von klein zu groß läuft
-7. Funktions-Typ und Amplitude der Spannung auslesen und an Gerät übergeben
-8. GitHub Version auslesen
-9. File-Namen erstellen sowie den Ordner und den File Kopf erstellen
-    - Überschrift, Aktuelles Datum, GitHub Version
-    - genutzte Geräte
-    - Experiment Informationen wie: Genutzte Spule, Versorgung Hall-Sensor und Voreinstellungen      
-    --> Alles wird aus der Parameterliste entnommen (außer Version und Datum)
-10. Messung und Bearbeitung
+The validation and the first tests were carried out with a self-wound Helmholtz coil. The coil has a diameter of 20 mm and 60 turns per coil section.
 
-Bis zu Punkt 10 werden die Grundlagen bearbeitet. Im Punkt 10 wird dnn die Messung der Hall-Spannung und die Änderung der Frequenz durchgeführt, wie die Zeilen genau funktionieren wird im folgenden erklärt.
+In the experiment, the magnetic field of coils is to be determined with the help of three devices. The first tests and validation are to take place with a Helmholtz coil. A Hall sensor was calibrated with the Helmholtz coil. When considering the setup, a current amplifier was also built, but this was not used further after failed tests.
 
-**Messung:**    
-Die Messung findet in einer **for-Schleife** statt. Diese for-Schleife läuft nach den Frequenz angaben. Z.B. wenn man von 20 Hz bis 20 kHz in 20 Hz Schritten läuft werden diese alle abgearbeitet. Bei der Angabe muss man beachten das die Schritte vom Anfangswert bis zum Endwert stimmig sind, da sonst grobe Schritte entstehen. Um den Endwert zu erreichen muss man diesen plus den Schritt Wert nehmen. Wenn man dies anders haben will muss man sich Schritt und Endwert anders berechnen. Das oben genannte Beispiel kann auch umgedreht werden, dafür muss man in der Parameterliste unter **Frequenz** **reverse** nur auf True stellen. Damit würde der Startwert zum Endwert und der Endwert zum Startwert, die Schrittzahl wird dann negativ. 
+In the test CZ (also called the Nemo-1 system), the magnetic fields of the system coil are now to be recorded with the help of the Hall sensor and the calibration values. A Hall sensor is used for the measurement, with which the Hall voltage is measured. This voltage is then converted into the magnetic flux density for calibration using a formula. A calibration curve can then be created with which the measurements can then be converted.
 
-Zu Beginn der Messung wird die aktuelle Frequenz an das Oszilloskop übergeben. Um dem Gerät etwas zeit zulassen gibt es hier ein Delay von 1s. Danach wird der aktuelle RMS Wert der Spannung ausgelesen (Angabe des Kanals - hier Spannung über dem Vorwiderstand der Spule) und gespeichert. 
+## Experiment: Performance measurement of resistive and inductive heaters
 
-In der **while-Schleife** wird nun der Strom bzw. die Spannung konstant gehalten (I = U/R --> U und I sind proportional - R konstant). Über die Parameterliste kann man den Sollwert, den gewollten Bereich und die Berichtigung von Vpp angeben. Sollte der aktuelle Spannungswert nicht in dem Bereich liegen, so wird die Schleife ausgeführt. Dabei wird die Schleife solange ausgeführt bis die Amplitude (Vpp) der Generator-Spannung eine Spannung am ausgewählten Kanal erzeugt die in dem Bereich liegt. Jenach dem ob die Spannung größer oder kleiner ist wird die Amplitude nach oben oder unten berichtigt, jedoch kann der Wert nicht über 12 V steigen, da dort das Maximum des Gerätes liegt.     
-Nach der Berichtigung wird die Amplitude an das Gerät gesendet und die Spannung am Gewählten Kanal erneut bestimmt.
+The experiment was about determining the performance of the various heaters (resistance heaters and induction heaters). Voltage (voltage measurement with differential probe - DP10013 from Micsig) and current measuring devices (Rogowski coil type MA 200) are used and evaluated using an oscilloscope. The program reads out the measurement data from this device and saves the curve on the device.
 
-Sollte der Wert im Bereich liegen, so wird das Multimeter, also die Hall-Spannung abgefragt. Zu Begin (nach ersten Messung) gibt es ein Delay von 5s in dem Programm. Diese Verzögerung kommt aus den Testen mit dem Gerät, da das Gerät eine gewisse Zeit brauch um den AC Kanal auszuwählen und den ersten Messwert anzugeben. Danach läuft dann alles.    
-Im Anschluss wird doe Spannung ausgelesen, die Einheit ermittelt und mit der Funktion **um** der Wert in Volt umgerechnet. Im Anschluss wird sich auch der Spannungswert am Kanal und die Amplitude des Oszilloskop gespeichert und in das File angehangen. 
+## Experiment setup:
+### Hall sensor calibration
+<img src="Bilder/Exp_Konzept_1.png" alt="Experiment_Aufbau_Kalibrierung" title='Setup sketch of the calibration experiment (source: Bachelor thesis Vincent Funke - page 55)' width=700/>
 
-Ist das Programm fertigt wird das durch eine Konsolenausgabe bestätigt. 
+### Magnetic field measurement in the test CZ system
+<img src="Bilder/Exp_Konzept_3.png" alt="Experiment_Aufbau_Magnetfeldmessung" title='Setup sketch of the magnetic field measurement (source: Bachelor thesis Vincent Funke - page XXIV)' width=700/>
 
-**Funktionen**    
-Die **Read_Ausgabe()** Funktion dient nur dem Auslesen des Multimeters.
+### Power measurement in the test CZ system
+<img src="Bilder/Exp_Konzept_2.png" alt="Experiment_Aufbau_Leistungsmessung" title='Setup sketch of the power measurement (source: Bachelor thesis Vincent Funke - Page XXV)' width=700/>
 
-Da das Multimeter so ausgelesen wird, das der genaue Wert vom Bildschirm genommen wird, wird auch die Einheit mit ausgelesen. Über die Funktion **um()** kann man die Einheit in Volt umrechnen. Die Funktion stammt aus meinem Studium an der HTW aus dem Modul Softwartechnik, aus einer der Laboraufgaben (von mir geschrieben). Die Funktion bekommt den Wert, die aktuelle Einheit und die Wunscheinheit. Über die Liste **einheit** funktioniert die Funktion. Zunächst wird der Listenplatz der Wunscheinheit und aktuellen Einheit gesucht. Aus der Differenz der beiden Werte mit 3 multipliziert erhält man die 10 Potenz zur Umrechnung. 
+## Supported devices
 
-Beispiel:    
-- gewollt sind V   
-    - Listenplatz = 3 = e2
-- haben tut man mV   
-    - Listenplatz = 2 = e1
-- Wert = 1000
-- Berechnung:     
-    - new_wert = wert x 10^((e1-e2) x 3) = 1000 x 10^((2-3) x 3) = 1000 x 10^(-3) = 1
+The Keysight oscilloscope is used to change the frequencies and amplitudes, the Keithley multimeter measures the Hall voltage and the source meter (not programmed) provides the supply voltage.
 
-Aufgrund von Problemen mit der Umwandlung zu float wurden bei mV und kV Rundungen eingefügt. 
+1. Keysight DSOX1204G oscilloscope (USB)
+2. Keithley DAQ6510 multimeter (RS232)
 
-**Auswerten der Daten:**   
-Mit dem Programm **Auswertung_Text-Datei.py** werden Diagramme zu dem erstellten Textdokument erstellt. Das Programm ist recht simple:
-    - es liest alle Zeilen aus (überspringt den Kopf)
-    - Hall-Spannung ohne Magnetfeld und Vorwiderstand muss über Konsole eingegeben werden (steht aber auch in der Text-Datei (kommt auf Version an))
-    - berechnet Strom und magnetische Flussdichte
-    - gibt alles über die Zeit in fünf Diagrammen aus
-    - speichert das Diagramm automatisch
+## Programs
 
-Diagramm:    
-<img src="Bilder/Kalibrierung_1.png" alt="Kurven-Zeit" title="unbearbeitete Kalibrierungskurven über der Zeit" width=500/>
+### Main programs
+1. [hauptprogramm_Kalibrierung.py](hauptprogramm_Kalibrierung.py)
+    - Calibration program for Hall sensor (recording measurement data)
+2. [hauptprogramm_Leistung.py](hauptprogramm_Leistung.py)
+    - Measuring the performance by recording the oscilloscope curves
+3. [hauptprogramm_Profil.py](hauptprogramm_Profil.py)
+    - Recording magnetic field profiles of a coil
 
----
+### Evaluation programs
 
-### 1.2. hauptprogramm_Leistung.py
-Mit diesem Programm kann man den Bildschirm des Keysight Oszilloskops auslesen. Dabei werden alle y-Werte in einem String vom Gerät zurückgegeben und die Sampling-Rate der Kurve. Insgesamt gibt es 4 Kanäle, diese Kanäle können über die Parameterliste **parameter_Leistung.yml** belegt werden. Über die Liste werden die VID und PID Nummern übergeben, die Anzahl der Kurven für das Diagramm mit Kanalnummer und Kurven Label. Des weiteren kann man unter **Messung** eine Notiz zum Zeitpunkt der Messung angeben. Im Programm kommt diese dann in den Kopf des Files mit einen Zeitstempel. 
+1. [Auswertung_Text-Datei.py](Auswertung/Auswertung_Text-Datei.py)
+2. [Profil_Kurvenschar_Weg-Rot_Magnetfeld.py](Auswertung/Profil_Kurvenschar_Weg-Rot_Magnetfeld.py)
+3. [Profil_Kurvenschar_Zeit_Hall-Spannung.py](Auswertung/Profil_Kurvenschar_Zeit_Hall-Spannung.py)
+4. [Profil_Umrechnung.py](Auswertung/Profil_Umrechnung.py)
 
-Das Programm arbeitet mit Klassen. Jede Kurve bekommt dann eine eigene Klasse, in dem die Werte der Parameterliste gespeichert werden und die Daten aus dem Oszilloskop ausgelesen werden. Zudem bekommt jede Kurve ihre eigene Text-Datei bzw. in der Klasse ihren eigenen File-Namen.
-
-Neben dem erstellen der Text-Datei werden die Daten in einem Diagramm geplottet. Für jedes Objekt wird die Textdatei mit dem File-Namen erstellt und die Kurve erzeugt. Das Gerät hat selber bestimmte Farben bei den Kanälen, dies wurde hier auch implementiert. 
-- Kanal 1 - Gelb (hier Gold)
-- Kanal 2 - Grün
-- Kanal 3 - Blau
-- Kanal 4 - Rot
-
-Im Kopf der Text-Datei stehen die Zeitschritte (Sampling-Rate) und wann die Messung durchgeführt wurde. Danach werden die ausgelesenen Daten eingetragen.
-Im nächsten Schritt werden die Diagrammdaten erstellt, die y-Werte werden in floats umgewandelt. Bei diesem Schritt sollen Leerzeilen übersprungen werden, bei einigen Testen (ohne Kurve) sind Leerzeilen entstanden die das Programm abstürzen ließen. Aus diesem Grund sollen nur Textzeilen beachtet werden und ein Fehler bei der Umwandlung mit float() ausgegeben werden. Wenn das alles geklappt hat, wird die Kurve erstellt.
-
-Mit dem abschließen der letzten Kurve bzw. letztem Objekt, wird das Diagramm erstellt, welches im folgenden gespeichert wird. Ordner und name werden vom Diagramm selbst erstellt. Hier muss man aber aufpassen, da die Namen separat erstellt werden, das heißt das es hier zu Unordnung kommen kann wenn man nicht aufpasst. 
-
-Dieses Programm kann auch für andere Anwendungen mit dem Oszilloskop genutzt werden. 
-
----
-
-### 1.3. hauptprogramm_Profil.py
-Das Programm wurde zum erstellen der Profile für die Entwicklung des Magnetischen Feldes bei einem bewegenden Hall-Sensors geschrieben. 
-
-Die Struktur des Programmes stammt aus dem AutoTune Programmen der Emissivitätsbestimmung (exp-T-control-v2). Auch hier wird die Funktion **um()** genutzt. Das Programm nimmt die Hall-Spannung auf und plottet diese Live über der Zeit. 
-
-**Programmablauf:**    
-1. Variable **nStart** auf False setzen
-2. Parameterliste (parameter_Profil.yml) zu Verfügung stellen
-3. Keithley Multimeter (DAQ) initialisieren (Schnittstelle)
-4. Gerät Reset durchführen
-5. Gerätenamen auslesen
-6. Buffer erzeugen
-7. GUI erstellen (Funktion aufrufen) - simple GUI nur Start und Beenden
-8. Start betätigen
-    - File wird mit File-Kopf erzeugt (eintragen der Voreinstellungen und Experimentablauf Daten aus der Parameterliste), Ordner erstellt
-    - Start Zeit bestimmt
-    - nStart auf True gesetzt - Freischaltung der Funktion und erneutes Start drücken verhindern
-    - Grafik wird erzeugt
-9. get_Measurment() wird ausgeführt (bestens alle Sekunde)
-    - dt wird bestimmt
-    - Multimeter wird angesprochen, frage nach Hall-Spannung
-        - Aufruf des 5s Delays beim ersten mal
-    - Aufruf Funktion um()
-    - Listen aktualisieren 
-    - File erweitern
-    - Grafik updaten (mit Autoscaling)
-10. bei Betätigen von Stop
-    - Messung wird beendet
-    - Bild wird gespeichert
-    - Programm wird beendet
-
-**Auswertungsdatei:**     
-Mit dem Programm **Profil_Zeit_Hall-Spannung.py** kann man durch Angabe in einem Dictionerie die Profil-Daten neben einander darstellen!
-
-Dafür werden die Kurven aus ihren Textdateien in einer Schleife ausgelesen und zusammen geplottet. Das Diagramm muss von Hand gespeichert werden. 
-
-Mit **Profil_Umrechnung.py** werden die Zeit Werte in einen Weg oder Winkel umgerechnet und ein Plot, sowie eine Text-Datei erstellt mit den neuen Daten. Weiterhin wird hier auch die Magnetische Flussdichte B aus der Hall-Spannung berechnet. 
-
-Das Programm **Profil_Kurvenschar_Weg-Rot_Magnetfeld.py** erstellt aus den neuen Kurven einen Plot mit allen ausgewählten bzw. angegebenen Kurven. #
-
----
-## 2. Weiteres
-Einige Teile der Programme wurden aus den verschiedenen anderen Programmen wie Emissionsgradbestimmung/Temperaturegelung und AutoTune entnommen. Zum Beispiel die Programmstruktur für die Profil-Bestimmung stammt aus den AutoTune Programmen. Auch sich immer wieder wiederholende Programmzeilen wie File und Ordenr erstellen, den Filenamen erstellen oder auch die Version von GitHub lesen sind hier wieder mit dabei. 
-
-### 2.1. Programmquellen
-- https://dev.to/days_64/python-hex-function-convert-decimal-to-hexadecimal-33am
-    - Nutzung von hex()
-
-### 2.2. Beispiel Datei  
-In dem Ordner "Beispiel Datein" liegen die Yaml-Dateien die für die Programme relevant sind drin!   
-*Bei dem Namen der Datei muss dann nur das "Beispiel_" entfernt werden!*
-
-### 2.3. Info
-Im gleichnamigen Ordner liegen Datein die weiter Informationen enthalten. 
-
-**Bisher:**
-1. geräte_Befehle_etc.md
-    - Genutzte Geräte
-    - Genutzte Gerätebefehle im Programm
-    - Schnittstellen Einstellung
-    - Manual Quellen
-
-### 2.4. Test-Programme
-Mit den beiden Testprogramm kann man einfach Befehle austesten.
+### Test programs
+With the two test programs you can easily test commands.
 
 **Keithley:**    
-Kommunikationstest_1-Keithley-DAQ.py
+[Kommunikationstest_1-Keithley-DAQ.py](Test-Programme/Kommunikationstest_1-Keithley-DAQ.py)
 
-Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die einfach über die Erstellung der oben in Kapitel 1 genannten Programm verwendet wurden.
+In the program you will find various commands, some of which are commented out, which were simply used to create the program mentioned above in Chapter 1.
 
 **Keysight:**  
-Kommunikationstest_2-Keysight-Oscilloscope.py
+[Kommunikationstest_2-Keysight-Oscilloscope.py](Test-Programme/Kommunikationstest_2-Keysight-Oscilloscope.py)
 
 Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die einfach über die Erstellung der oben in Kapitel 1 genannten Programm verwendet wurden.
+
+## Usage/ About the programs
+
+1. Configuration using the Config (Yaml) file:
+    - hauptprogramm_Kalibrierung.py - Template: [Beispiel_parameter_Kalibrierung.yml](Beispiel_Datein/Yaml/Beispiel_parameter_Kalibrierung.yml)
+    - hauptprogramm_Leistung.py - Template: [Beispiel_parameter_Leistung.yml](Beispiel_Datein/Yaml/Beispiel_parameter_Leistung.yml)
+    - hauptprogramm_Profil.py - Template: [Beispiel_parameter_Profil.yml](Beispiel_Datein/Yaml/Beispiel_parameter_Profil.yml)
+
+    - When using, "Beispiel_" must be removed.
+
+2. Remarks main/measurement programs:
+    - hauptprogramm_Kalibrierung.py
+        - `python .\hauptprogramm_Kalibrierung.py`
+        - Processes loop
+        - End: `print("\nProgramm abgearbeitet!")` 
+        - Products (examples):
+            - Path: Daten\Daten_vom_2022_03_02
+            - File: 2022_03_02_#01_volt.txt ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Kalibrierung.txt))
+    - hauptprogramm_Leistung.py
+        - `python .\hauptprogramm_Leistung.py`
+        - Image is saved
+        - Products (examples):
+            - Path: Daten/Oszi-Daten_vom_2022_03_04
+            - File: 2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.txt ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Leistung.txt))
+    - hauptprogramm_Profil.py
+        - `python .\hauptprogramm_Profil.py`
+        - tkinter environment opens
+        - Live plot can be seen
+        - Products (examples):
+            - Path: Daten/Daten_vom_2022_03_10/Profil
+            - File: 2022_03_10_#01_Profil.txt ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Profil.txt))
+                    2022_03_10_#01_Profil_Bild.png ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png))
+
+3. Evaluation programs:
+    1. Auswertung_Text-Datei.py
+        The folder [Daten](../Daten) contains an example of this. When the program is started, a plot is created!
+        - Enter file in variable `lese_File`: e.g. `2022_03_04_#01_volt.txt`
+        - Start program: `python .\Auswertung_Text-Datei.py`
+        - Enter the Hall voltage without magnetic field in mV and the series resistor in Ohm (console input)
+        - Plot opens
+        - [Example](Beispiel_Datein/Auswertung/Beispiel_Auswertung_Text-Datei.png)
+    2. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py
+        The folder [Daten](../Daten) contains an example of this. When the program is started, a plot is created!
+        - Path and name are defined in the dictionary `data`
+        - Start program: `python .\Profil_Kurvenschar_Weg-Rot_Magnetfeld.py`
+        - [Example](Beispiel_Datein/Auswertung/Beispiel_Profil_Kurvenschar_Zeit_Hall-Spannung.png)
+    3. Profil_Umrechnung.py
+        The folder [Daten](../Daten) contains an example of this. When the program is started, a plot is created! The result can be found there and is used for point 4!
+        - Products (examples):
+            Path: Daten/Profil-Umrechnung (Created in the execution folder!)
+        - Specify path in variable `folder`
+        - Specify movement (stroke, rotation) in `bewegung` and direction of movement (up, down or CCW, CW) in `richtung_hub` or `richtung_rot`
+        - Specify values ​​in `weg_beginn`, `weg_Ende` and `rotation_Begin`
+        - Start program: `python .\Profil_Umrechnung.py`
+        - [Example_1](Beispiel_Datein/Auswertung/Beispiel_Bild_Datei_Umrechnung_Profil_Hub.png)
+        - [Example_2](Beispiel_Datein/Auswertung/Beispiel_Bild_Datei_Umrechnung_Profil_Rot.png)
+            - more in the said upper folder!
+    4. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py
+        The folder [Daten](../Daten) contains an example of this. When the program is started, a plot is created!
+        - Path and name are defined in the dictionary `data`
+        - Start program: `python .\Profil_Kurvenschar_Weg-Rot_Magnetfeld.py`
+        - [Example](Beispiel_Datein/Auswertung/Beispiel_Profil_Kurvenschar_Weg-Rot_Magnetfeld.png)
+
+## Dependencies
+
+The programs work with Python. Windows and Raspberry Pi were used.
+
+**Libraries used:**
+
+1. hauptprogramm_Kalibrierung.py
+    - numpy
+    - serial
+    - yaml
+    - datetime
+    - os
+    - subprocess
+    - time
+    - usbtmc
+
+2. hauptprogramm_Profil.py
+    - serial
+    - time
+    - datetime  
+    - tkinter                           
+    - numpy                              
+    - matplotlib
+    - os
+    - yaml
+    - subprocess  
+
+3. hauptprogramm_Profil.py
+    - usbtmc
+    - numpy
+    - matplotlib
+    - os
+    - yaml
+    - datetime
+
+4. Auswertung_Text-Datei.py
+    - numpy 
+    - matplotlib
+    - os
+
+5. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py
+    - numpy 
+    - matplotlib
+    - os
+
+6. Profil_Kurvenschar_Zeit_Hall-Spannung.py
+    - numpy 
+    - matplotlib
+    - os
+
+7. Profil_Umrechnung.py
+    - numpy 
+    - matplotlib
+    - os
+    - math 
+
+8. Kommunikationstest_1-Keithley-DAQ.py
+    - serial
+    - time
+
+9. Kommunikationstest_2-Keysight-Oscilloscope.py
+    - usbtmc   
+    - numpy
+    - matplotlib
+    - os
+
+
+## Documents
+
+Further information about the programs and their use, as well as information about the experiment, can be found in the bachelor thesis!
+
+Link:
+
+## Information
+
+In the folder **[Info](../Info)** there are further documents that describe the programs in more detail. The following topics can be found there in German and English:
+
+1. Explanation of the commands:
+    - [Show En](Info/geräte_Befehle_etc_En.md)
+    - [Show De](Info/geräte_Befehle_etc_DE.md)
+2. Explanation of the program code:
+    - [Show En](Info/Programm_Info_En.md)
+    - [Show De](Info/Programm_Info_DE.md)
+3. Evaluation programs:
+    - [Show En](Info/Auswertung_En.md)
+    - [Show De](Info/Auswertung_De.md) 
+4. Readme in German
+    - [Show](Info/Readme_DE.md)

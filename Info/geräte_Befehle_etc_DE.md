@@ -45,7 +45,7 @@ Seitenangaben beziehen sich auf das Dokument "DAQ6510-901-01B_Sept_2019_Ref.pdf"
     In dem Bild kann man den Unterschied zu den beiden Beispielen sehen. Durch den Buffer kann man mit **Form** den Gerätebildschirm Wert anzeigen lassen und mit **Read** wird der Wert einfach ausgelesen und in Exponentialschreibweise dargestellt. Die Exponentialschreibweise wird ohne Buffer Angabe auch gewählt. (Die Unterschiedlichen Werte kommen daher, da das Gerät extrem schwankte in dem Test.)
     - ein gutes Beispiel für die Nutzung des Befehls (auch für Testprogramm verwendet) ist auf Seite 433 zu finden
 
-    - in den hauptprogram.py Datein wird der Befehl so benutzt:    
+    - in den `hauptprogram.py` Datein wird der Befehl so benutzt:    
     **:MEAS:VOLT:AC? "{buffer_U}", FORM**
         - bei Default wird der DC Wert ausgelesen, deswegen muss AC angegeben werden 
         - der Buffer kommt aus der Parameter Liste
@@ -61,13 +61,13 @@ Seitenangaben beziehen sich auf das Dokument "DAQ6510-901-01B_Sept_2019_Ref.pdf"
 
 **Weitere Befehle:**
 1. *RST
-- Reset des Gerätes, Buffer vom Benutzer erstellt werden gelöscht
-- verhindert eine Fehlermeldung wegen des Buffers auf dem Gerät
-- S. 1230
+    - Reset des Gerätes, Buffer vom Benutzer erstellt werden gelöscht
+    - verhindert eine Fehlermeldung wegen des Buffers auf dem Gerät
+    - S. 1230
 
 2. *IDN?
-- Erfragung des Gerätenamens
-- S. 1228
+    - Erfragung des Gerätenamens
+    - S. 1228
 
 **Programmierung mit Python:**
 Beim senden eines Befehls wird am Ende des Befehls ein \n angehangen, was beim dekodieren wieder ausgefiltert wird. 
@@ -90,9 +90,9 @@ In dem Kapitel wird erklärt wie man das Gerät zu Kommunikation mit dem Compute
     - Auf der Seite steht wie man die Bibliothek dann richtig installiert, hier aber kurz zusammengefasst: 
     1. Lade die Bibliothek runter
     2. entpacke die Zip-datei
-    3. gehe in den Ordner der Datei (im entpackten Ordner) "setup.py"
+    3. gehe in den Ordner der Datei (im entpackten Ordner) `setup.py`
     4. öffne in dem Ordner das Konsolenfenster
-    5. führe "sudo python setup.py install" unter Linux aus
+    5. führe `sudo python setup.py install` unter Linux aus
 
 2. gebe in der Konsole "lsusb" ein
     - dadurch erfährt man die idVendor und idProduct
@@ -100,7 +100,7 @@ In dem Kapitel wird erklärt wie man das Gerät zu Kommunikation mit dem Compute
     - 2a8d = idVendor, 0396 = idProduct
     - **Tip**: Einmal vor dem Einschalten ausführen um zu sehen was sich ändert, dadurch erfährt man schnell was zu dem Gerät gehört
 
-3. Erstelle wie auf GitHub beschrieben die Datei "usbtmc.rules" im Ordner  /etc/udev/rules.d
+3. Erstelle wie auf GitHub beschrieben die Datei "usbtmc.rules" im Ordner /etc/udev/rules.d
     - auch hier eine Kurze Vorgehensweise:
     1. Gehe in den Ordner  /etc/udev/rules.d 
     2. mit "sudo touch usbtmc.rules" kann man die Datei erstellen

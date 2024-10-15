@@ -4,7 +4,7 @@ import numpy as np                              # Bibliothek für das Arbeiten m
 import matplotlib.pyplot as plt                 # Bibliothek für die Ausgabe von Graphen
 import os
 
-lese_File = '2022_03_04_#01_volt.txt'
+lese_File = '2022_03_02_#01_volt.txt'
 ordner_2 = 'Daten_vom_' + lese_File[0:10] + '/'
 
 fre = []

@@ -6,7 +6,7 @@ import math as m
 import os
 
 # Variablen zur Berechnung + Auslese Daten:
-file_name = 'Daten/4-3-22/2022_03_04_#01_Profil.txt'
+file_name = '../Daten/Daten_vom_2022_03_04/2022_03_04_#02_Profil.txt'
 
 time = []
 hall_U = []

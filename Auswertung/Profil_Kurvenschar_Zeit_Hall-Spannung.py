@@ -45,10 +45,8 @@ def Kurven_Plot(Path):
 #         'Ab  - Hinten-von-Mitte - P6' : 'Daten/4-3-22/2022_03_04_#06_Profil.txt'
 #        }
 
-data = { '11.5 cm über Boden - CCW - P1'  : 'Daten/9-3-22/2022_03_09_#01_Profil.txt',
-         '11.5 cm über Boden - CW  - P2'  : 'Daten/9-3-22/2022_03_09_#02_Profil.txt',
-         ' 7.5 cm über Boden - CCW - P3'  : 'Daten/9-3-22/2022_03_09_#03_Profil.txt',
-         ' 3.5 cm über Boden - CCW - P4'  : 'Daten/9-3-22/2022_03_09_#04_Profil.txt'
+data = { 'Mitte - 11.5 cm über Boden - Abwärts bis 3.5 cm'  : '../Daten/Daten_vom_2022_03_04/2022_03_04_#01_Profil.txt',
+         'Mitte - 3.5 cm über Boden - Aufwärts bis 11.5 cm'  : '../Daten/Daten_vom_2022_03_04/2022_03_04_#02_Profil.txt',
         }
 
 Kurven = []

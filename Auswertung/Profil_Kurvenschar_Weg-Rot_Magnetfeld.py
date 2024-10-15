@@ -45,10 +45,8 @@ def Kurven_Plot(Path):
 #         'Ab  - Hinten-von-Mitte' : 'Daten/Profil-Umrechnung/2022_03_04_#06_Profil_Hubbewegung_1.txt'
 #        }
 
-data = { '11.5 cm über Boden - CCW'  : 'Daten/Profil-Umrechnung/2022_03_09_#01_Profil_Rotationsbewegung.txt',
-         '11.5 cm über Boden - CW '  : 'Daten/Profil-Umrechnung/2022_03_09_#02_Profil_Rotationsbewegung.txt',
-         ' 7.5 cm über Boden - CCW'  : 'Daten/Profil-Umrechnung/2022_03_09_#03_Profil_Rotationsbewegung.txt',
-         ' 3.5 cm über Boden - CCW'  : 'Daten/Profil-Umrechnung/2022_03_09_#04_Profil_Rotationsbewegung.txt'
+data = { 'Mitte - 11.5 cm über Boden - Abwärts bis 3.5 cm'  : '../Daten/Profil-Umrechnung/2022_03_04_#01_Profil_Hubbewegung.txt',
+         'Mitte - 3.5 cm über Boden - Aufwärts bis 11.5 cm' : '../Daten/Profil-Umrechnung/2022_03_04_#02_Profil_Hubbewegung.txt',
         }
 
 Kurven = []
