@@ -1,5 +1,5 @@
 # exp-B-control
-These programs were created during Vincent Funke's bachelor thesis at the Institute for Crystal Growth (IKZ). The [Model Experiments Group](https://www.ikz-berlin.de/forschung-lehre/materialwissenschaften/sektion-fundamentale-beschreibung-1) was supported in this work. The topic of the thesis was:
+These programs were created during Vincent Funke's bachelor thesis at the Institute for Crystal Growth (IKZ). The [Model Experiments Group](https://www.ikz-berlin.de/en/research/materials-science/section-fundamental-description-1) was supported in this work. The topic of the thesis was:
 
 *Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter*
 
@@ -85,13 +85,16 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - End: `print("\nProgramm abgearbeitet!")` 
         - Products (examples):
             - Path: Daten\Daten_vom_2022_03_02
-            - File: 2022_03_02_#01_volt.txt ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Kalibrierung.txt))
+            - File: 
+                - 2022_03_02_#01_volt.txt ([Example](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Kalibrierung.txt))
     - hauptprogramm_Leistung.py
         - `python .\hauptprogramm_Leistung.py`
         - Image is saved
         - Products (examples):
             - Path: Daten/Oszi-Daten_vom_2022_03_04
-            - File: 2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.txt ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Leistung.txt))
+            - File:                 
+                - 2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.txt ([Example](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Leistung.txt))
+                - 2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.png ([Example](Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Leistung.png))
     - hauptprogramm_Profil.py
         - `python .\hauptprogramm_Profil.py`
         - tkinter environment opens
@@ -99,8 +102,8 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - Products (examples):
             - Path: Daten/Daten_vom_2022_03_10/Profil
             - File:    
-                2022_03_10_#01_Profil.txt ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Profil.txt))       
-                2022_03_10_#01_Profil_Bild.png ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png))
+                - 2022_03_10_#01_Profil.txt ([Example](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Profil.txt))       
+                - 2022_03_10_#01_Profil_Bild.png ([Example](Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png))
 
 3. Evaluation programs:
     1. Auswertung_Text-Datei.py

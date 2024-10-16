@@ -93,16 +93,17 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - Erzeugnisse (Beispiele):
             - Pfad:     Daten/Oszi-Daten_vom_2022_03_04
             - Datei:   
-            2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.txt ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Leistung.txt))    
-            2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.png ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Leistung.png))
+                - 2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.txt ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Leistung.txt))    
+                - 2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.png ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Leistung.png))
     - hauptprogramm_Profil.py
         - `python .\hauptprogramm_Profil.py`
         - tkinter Umgebung öffnet sich
         - Live-Plot ist zu sehen
         - Erzeugnisse (Beispiele):
             - Pfad:     Daten/Daten_vom_2022_03_10/Profil
-            - Datei:    2022_03_10_#01_Profil.txt ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Profil.txt))
-                        2022_03_10_#01_Profil_Bild.png ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png))
+            - Datei:    
+                - 2022_03_10_#01_Profil.txt ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Profil.txt))
+                - 2022_03_10_#01_Profil_Bild.png ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png))
 
 3. Auswertungsprogramme:
     1. Auswertung_Text-Datei.py    

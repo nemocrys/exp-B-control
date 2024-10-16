@@ -41,7 +41,7 @@ Page numbers refer to the document "DAQ6510-901-01B_Sept_2019_Ref.pdf"!
     - Example: **:MEAS:VOLT? "voltMeasBuffer", FORM, READ**
         - what is in quotation marks is a buffer with which you can reformat the read value
     - Example: **:MEAS:VOLT?**
-    <img src="../Bilder/Beispiel_Buffer.png" alt="Beispiel" title='Difference :MEAS:VOLT? and :MEAS:VOLT? "voltMeasBuffer", FORM, READ' width=700/>
+    <img src="../Bilder/Beispiel_Buffer.png" alt="Beispiel" title='Difference :MEAS:VOLT? and :MEAS:VOLT? "voltMeasBuffer", FORM, READ' width=700/>    
     In the picture you can see the difference between the two examples. Using the buffer you can use **Form** to display the device screen value and with **Read** the value is simply read out and displayed in exponential notation. The exponential notation is also selected without specifying a buffer. (The different values ​​are due to the fact that the device fluctuated extremely during the test.)
     - a good example of the use of the command (also used for the test program) can be found on page 433
 
@@ -80,7 +80,7 @@ When sending a command, a \n is appended to the end of the command,which is filt
 
 ## 2. Keysight - DSOX1204G 
 
-This is what the device used looks like:
+This is what the device used looks like:     
 <img src="../Bilder/Oszi_Keysight.jpg" alt="Device" title="Keysight - DSOX1204G" width=500/>
 
 ### 2.1. Commissioning

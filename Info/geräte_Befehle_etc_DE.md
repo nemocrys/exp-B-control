@@ -41,7 +41,7 @@ Seitenangaben beziehen sich auf das Dokument "DAQ6510-901-01B_Sept_2019_Ref.pdf"
     - Beispiel: **:MEAS:VOLT? "voltMeasBuffer", FORM, READ**
         - das in den Anführungsstrichen ist ein Buffer mit dem man den gelesenen Wert umformatieren kann
     - Beispiel: **:MEAS:VOLT?**
-    <img src="../Bilder/Beispiel_Buffer.png" alt="Beispiel" title='Unterschied :MEAS:VOLT? und :MEAS:VOLT? "voltMeasBuffer", FORM, READ' width=700/>   
+    <img src="../Bilder/Beispiel_Buffer.png" alt="Beispiel" title='Unterschied :MEAS:VOLT? und :MEAS:VOLT? "voltMeasBuffer", FORM, READ' width=700/>          
     In dem Bild kann man den Unterschied zu den beiden Beispielen sehen. Durch den Buffer kann man mit **Form** den Gerätebildschirm Wert anzeigen lassen und mit **Read** wird der Wert einfach ausgelesen und in Exponentialschreibweise dargestellt. Die Exponentialschreibweise wird ohne Buffer Angabe auch gewählt. (Die Unterschiedlichen Werte kommen daher, da das Gerät extrem schwankte in dem Test.)
     - ein gutes Beispiel für die Nutzung des Befehls (auch für Testprogramm verwendet) ist auf Seite 433 zu finden
 
@@ -79,7 +79,7 @@ Beim senden eines Befehls wird am Ende des Befehls ein \n angehangen, was beim d
 ---
 ## 2. Keysight - DSOX1204G   
 
-So sieht das genutzte Gerät aus:    
+So sieht das genutzte Gerät aus:      
 <img src="../Bilder/Oszi_Keysight.jpg" alt="Gerät" title="Keysight - DSOX1204G" width=500/>
 
 
