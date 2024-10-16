@@ -85,8 +85,7 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - End: `print("\nProgramm abgearbeitet!")` 
         - Products (examples):
             - Path: Daten\Daten_vom_2022_03_02
-            - File: 
-                - 2022_03_02_#01_volt.txt ([Example](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Kalibrierung.txt))
+            - File: 2022_03_02_#01_volt.txt ([Example](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Kalibrierung.txt))
     - hauptprogramm_Leistung.py
         - `python .\hauptprogramm_Leistung.py`
         - Image is saved
