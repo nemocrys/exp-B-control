@@ -68,7 +68,7 @@ The program **Evaluation_Text-File.py** is used to create diagrams for the text 
     - outputs everything over time in five diagrams
     - saves the diagram automatically
 
-Diagram:
+Diagram:    
 <img src="../Beispiel_Datein/Auswertung/Beispiel_Auswertung_Text-Datei.png" alt="Curve-Time" title="unprocessed calibration curves over time (source: Bachelor thesis Vincent Funke - Page 61)" width=500/>
 
 ---

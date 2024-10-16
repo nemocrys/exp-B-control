@@ -109,7 +109,9 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - Start program: `python .\Auswertung_Text-Datei.py`
         - Enter the Hall voltage without magnetic field in mV and the series resistor in Ohm (console input)
         - Plot opens
-        - [Example](Beispiel_Datein/Auswertung/Beispiel_Auswertung_Text-Datei.png)
+        - Products (examples):
+            - Path: Daten\Daten_vom_2022_03_02_#01
+            - File: 2022_03_02_#01_volt_Bild_#01.png ([Example](Beispiel_Datein/Auswertung/Beispiel_Auswertung_Text-Datei.png))
     2. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py
         The folder [Daten](Daten) contains an example of this. When the program is started, a plot is created!
         - Path and name are defined in the dictionary `data`

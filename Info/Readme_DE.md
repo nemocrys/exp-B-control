@@ -111,7 +111,9 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - Programm Starten: `python .\Auswertung_Text-Datei.py`
         - Eingabe der Hall-Spannung ohne Magnetfeld in mV und des Vorwiderstand in Ohm  (Konsoleneingabe)
         - Plot öffnet sich
-        - [Beispiel](../Beispiel_Datein/Auswertung/Beispiel_Auswertung_Text-Datei.png)
+        - Erzeugnisse (Beispiele):
+            - Pfad: Daten\Daten_vom_2022_03_02_#01
+            - Bild: 2022_03_02_#01_volt_Bild_#01.png ([Beispiel](../Beispiel_Datein/Auswertung/Beispiel_Auswertung_Text-Datei.png))
     2. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py   
         Der Ordner [Daten](../Daten) beinhaltet ein Beispiel hierfür. Wenn das Programm gestartet wird, wird ein Plot erstellt!
         - Pfad und Bezeichnung werden im Dictionary `data` definiert
