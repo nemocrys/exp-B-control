@@ -208,7 +208,7 @@ Link:
 
 ## Informationen
 
-Im Ordner **[Info](Info)** befinden sich weitere Dokumente, die die Programme näher beschreiben. Folgende Themen sind dort in Deutsch und Englisch zu finden:
+Im Ordner **[Info](../Info)** befinden sich weitere Dokumente, die die Programme näher beschreiben. Folgende Themen sind dort in Deutsch und Englisch zu finden:
 
 1. Erläuterung der Befehle:
     - [Zeige En](geräte_Befehle_etc_En.md)

@@ -207,7 +207,7 @@ Link:
 
 ## Information
 
-In the folder **[Info](../Info)** there are further documents that describe the programs in more detail. The following topics can be found there in German and English:
+In the folder **[Info](Info)** there are further documents that describe the programs in more detail. The following topics can be found there in German and English:
 
 1. Explanation of the commands:
     - [Show En](Info/geräte_Befehle_etc_En.md)
