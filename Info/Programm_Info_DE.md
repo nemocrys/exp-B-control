@@ -40,7 +40,7 @@ Im Anschluss wird die Spannung ausgelesen, die Einheit ermittelt und mit der Fun
 
 Ist das Programm fertigt wird das durch eine Konsolenausgabe bestätigt. 
 
-**Funktionen**    
+**Funktionen:**    
 Die **Read_Ausgabe()** Funktion dient nur dem Auslesen des Multimeters.
 
 Da das Multimeter so ausgelesen wird, das der genaue Wert vom Bildschirm genommen wird, wird auch die Einheit mit ausgelesen. Über die Funktion **um()** kann man die Einheit in Volt umrechnen. Die Funktion stammt aus meinem Studium an der HTW aus dem Modul Softwartechnik, aus einer der Laboraufgaben (von mir geschrieben). Die Funktion bekommt den Wert, die aktuelle Einheit und die Wunscheinheit. Über die Liste **einheit** funktioniert die Funktion. Zunächst wird der Listenplatz der Wunscheinheit und aktuellen Einheit gesucht. Aus der Differenz der beiden Werte mit 3 multipliziert erhält man die 10 Potenz zur Umrechnung. 

@@ -1,7 +1,9 @@
 # Evaluation programs:
 
-## Profile
-The following two programs are almost identical.
+In the folder [Daten](../Daten) there are some text files that have been created by the various main programs. The following programs access these files and also create new folders. The text files serve as an example. Further example data can be found in the folder [Beispiel_Datein](../Beispiel_Datein).
+
+## Profile    
+The following two programs are almost identical. `Profil_Kurvenschar_Zeit_Hall-Spannung.py` is used to read the text file from `hauptprogramm_Profil.py`. `Profil_Umrechnung.py` is used to convert the data from `hauptprogramm_Profil.py` so that it can be used by `Profil_Kurvenschar_Weg-Rot_Magnetfeld.py`.
 
 ### Profil_Kurvenschar_Zeit_Hall-Spannung.py
 The program displays the curves of the measured profiles in a diagram. In the program, the curves or text files are passed on via a dictionary. These are then read out in a loop and processed in the **Kurven_Plot** function and the curve is created. Once all the data has been read out, the diagram is created. This must be saved manually.

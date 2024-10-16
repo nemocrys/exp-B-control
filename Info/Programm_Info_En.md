@@ -1,13 +1,13 @@
 # 1. Programs
 The programs mentioned below all work with coils. Firstly, there is a program for calibration, for measuring the performance of the coil and for recording profiles on the test CZ coil. The programs are explained below.
 
-## 1.1. main program_calibration.py
+## 1.1. main program_calibration.py   
 The program was used to calibrate a Hall sensor using a Helmholtz coil. The program talks to the Keithley multimeter (DAQ) and the Keysight oscilloscope. Various strings and values ​​are passed to the program via a parameter list.
 
-## 1.1. hauptprogramm_Kalibrierung.py
+## 1.1. hauptprogramm_Kalibrierung.py   
 The program was used to calibrate a Hall sensor using a Helmholtz coil. The program talks to the Keithley multimeter (DAQ) and the Keysight oscilloscope. Various strings and values ​​are passed to the program via a parameter list.
 
-**Program sequence:**
+**Program sequence:**   
 1. Read the parameter list (**parameter_Kalibrierung.yml**) and make it available for the program
 2. Initialize the Keysight oscilloscope
     - Read and transfer VID and PID
@@ -30,7 +30,7 @@ The program was used to calibrate a Hall sensor using a Helmholtz coil. The prog
 
 Up to point 10 The basics are dealt with. In point 10, the measurement of the Hall voltage and the change of frequency are carried out. How the lines work exactly is explained below.
 
-**Measurement:**
+**Measurement:**   
 The measurement takes place in a **for loop**. This for loop runs according to the frequency specifications. For example, if you run from 20 Hz to 20 kHz in 20 Hz steps, these are all processed. When specifying, you have to make sure that the steps from the start value to the end value are consistent, otherwise rough steps will arise. To reach the end value, you have to take this plus the step value. If you want it to be different, you have to calculate the step and end value differently. The above example can also be reversed; to do this, you just have to set **reverse** to True in the parameter list under **Frequency**. This would make the start value the end value and the end value the start value, and the number of steps would then be negative.
 
 At the start of the measurement, the current frequency is passed to the oscilloscope. To give the device some time, there is a delay of 1 s. The current RMS value of the voltage is then read out (specifying the channel - here voltage across the coil's series resistor) and saved.
@@ -44,7 +44,7 @@ The voltage is then read out, the unit is determined and the value is converted 
 
 When the program is finished, this is confirmed by a console output.
 
-**Functions**
+**Functions:**   
 The **Read_Output()** function is only used to read the multimeter.
 
 Since the multimeter is read in such a way that the exact value is taken from the screen, the unit is also read. The **um()** function can be used to convert the unit into volts. The function comes from my studies at the HTW in the software technology module, from one of the laboratory tasks (written by me). The function gets the value, the current unit and the desired unit. The function works via the **unit** list. First, the list position of the desired unit and current unit is searched for. The difference between the two values ​​multiplied by 3 gives the 10th power for the conversion.
@@ -60,7 +60,7 @@ Example:
 
 Due to problems with the conversion to float, rounding has been added for mV and kV.
 
-**Evaluating the data:**
+**Evaluating the data:**   
 The program **Evaluation_Text-File.py** is used to create diagrams for the text document created. The program is quite simple:
     - it reads out all lines (skips the header)
     - Hall voltage without magnetic field and series resistor must be entered via the console (but is also in the text file (depends on the version))
@@ -93,7 +93,7 @@ When the last curve or last object is completed, the diagram is created, which i
 
 This program can also be used for other applications with the oscilloscope.
 
-Diagram:
+Diagram:    
 <img src="../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Leistung.png" alt="Oscilloscope plot" title="Plot from the oscilloscope" width=500/>
 
 ---
@@ -104,7 +104,7 @@ The program was written to create profiles for the development of the magnetic f
 
 The structure of the program comes from the AutoTune program for determining emissivity (exp-T-control-v2). The **um()** function is also used here. The program records the Hall voltage and plots it live over time.
 
-**Program flow:**
+**Program flow:**   
 1. Set variable **nStart** to False
 2. Provide parameter list (parameter_Profil.yml)
 3. Initialize Keithley multimeter (DAQ) (interface)
@@ -130,7 +130,7 @@ The structure of the program comes from the AutoTune program for determining emi
     - Image is saved
     - Program is terminated
 
-**Evaluation file:**
+**Evaluation file:**   
 With the program **Profil_Zeit_Hall-Spannung.py** you can display the profile data next to each other by entering it in a dictionary!
 
 To do this, the curves are read out of their text files in a loop and plotted together. The diagram must be saved manually.
@@ -139,7 +139,7 @@ With **Profil_Umrechnung.py** the time values ​​are converted into a path or
 
 The program **Profil_Kurvenschar_Weg-Rot_Magnetfeld.py** creates a plot from the new curves with all the selected or specified curves.
 
-Diagram:   
+Diagram:      
 <img src="../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png" alt="Magnetic field profile" title="Plot of the magnetic field profile" width=300/>
 
 # 2. Other

@@ -1,7 +1,11 @@
 # Auswertungsprogramme:
 
+In dem Ordner [Daten](../Daten) befinden sich einige Text-Datein die von den verschiedenen Hauptprogrammen erstellt worden sind. Die folgenden Programme greifen auf diese Dateien zu und erstellen auch neue Ordner. Die Text-Datein dienen als Beispiel. Weitere Beispiel Daten sind im Ordner [Beispiel_Datein](../Beispiel_Datein) zu finden. 
+
 ## Profil
-Die beiden folgenden Programme sind nahezu identisch. 
+Die beiden folgenden Programme sind nahezu identisch. Mit `Profil_Kurvenschar_Zeit_Hall-Spannung.py` wird die Text-Datei von `hauptprogramm_Profil.py` ausgelesen. Mit `Profil_Umrechnung.py` werden die Daten von `hauptprogramm_Profil.py` umgerechnet, sodass diese von `Profil_Kurvenschar_Weg-Rot_Magnetfeld.py` genutzt werden können.
+
+
 ### Profil_Kurvenschar_Zeit_Hall-Spannung.py
 Mit dem Programm werden die Kurven der gemessenen Profile in einem Diagramm dargestellt. In dem Programm übergibt man die Kurven bzw. Text-Datein über ein Dictionerie. Diese werden dann in einer Schleife ausgelesen und in der Funktion **Kurven_Plot** bearbeitet und die Kurve erstellt. Wenn alle Daten ausgelesen sind wird das Diagramm erstellt. Dieses muss von Hand gespeichert werden. 
 
