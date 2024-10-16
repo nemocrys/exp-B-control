@@ -1,5 +1,4 @@
 Messungen der Hall-Spannung/ Magnetfeldmessungen
-
 ------------------------------------------------
 Datum: 2022_03_04
 Version: v3.0-52-g9982156-dirty
@@ -10,6 +9,7 @@ Gerät 1: KEYSIGHT TECHNOLOGIES,DSOX1204G,CN61367122,02.11.2020062221
 Gerät 2: KEITHLEY INSTRUMENTS,MODEL DAQ6510,04463273,1.0.04b
 
 Experiment Informationen:
+-------------------------
 Spulendurchmesser: 20 mm
 Spulenwindungen:   60 je Spule
 Vorwiderstand:     10 Ohm

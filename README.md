@@ -1,5 +1,5 @@
 # exp-B-control
-These programs were created during Vincent Funke's bachelor thesis at the Institute for Crystal Growth (IKZ). The [Model Experiments Group](https://www.ikz-berlin.de/en/research/materials-science/section-fundamental-description#c486) was supported in this work. The topic of the thesis was:
+These programs were created during Vincent Funke's bachelor thesis at the Institute for Crystal Growth (IKZ). The [Model Experiments Group](https://www.ikz-berlin.de/forschung-lehre/materialwissenschaften/sektion-fundamentale-beschreibung-1) was supported in this work. The topic of the thesis was:
 
 *Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter*
 
@@ -98,24 +98,25 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - Live plot can be seen
         - Products (examples):
             - Path: Daten/Daten_vom_2022_03_10/Profil
-            - File: 2022_03_10_#01_Profil.txt ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Profil.txt))
-                    2022_03_10_#01_Profil_Bild.png ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png))
+            - File:    
+                2022_03_10_#01_Profil.txt ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Profil.txt))       
+                2022_03_10_#01_Profil_Bild.png ([Beispiel](Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png))
 
 3. Evaluation programs:
     1. Auswertung_Text-Datei.py
-        The folder [Daten](../Daten) contains an example of this. When the program is started, a plot is created!
+        The folder [Daten](Daten) contains an example of this. When the program is started, a plot is created!
         - Enter file in variable `lese_File`: e.g. `2022_03_04_#01_volt.txt`
         - Start program: `python .\Auswertung_Text-Datei.py`
         - Enter the Hall voltage without magnetic field in mV and the series resistor in Ohm (console input)
         - Plot opens
         - [Example](Beispiel_Datein/Auswertung/Beispiel_Auswertung_Text-Datei.png)
     2. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py
-        The folder [Daten](../Daten) contains an example of this. When the program is started, a plot is created!
+        The folder [Daten](Daten) contains an example of this. When the program is started, a plot is created!
         - Path and name are defined in the dictionary `data`
         - Start program: `python .\Profil_Kurvenschar_Weg-Rot_Magnetfeld.py`
         - [Example](Beispiel_Datein/Auswertung/Beispiel_Profil_Kurvenschar_Zeit_Hall-Spannung.png)
     3. Profil_Umrechnung.py
-        The folder [Daten](../Daten) contains an example of this. When the program is started, a plot is created! The result can be found there and is used for point 4!
+        The folder [Daten](Daten) contains an example of this. When the program is started, a plot is created! The result can be found there and is used for point 4!
         - Products (examples):
             Path: Daten/Profil-Umrechnung (Created in the execution folder!)
         - Specify path in variable `folder`
@@ -126,7 +127,7 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - [Example_2](Beispiel_Datein/Auswertung/Beispiel_Bild_Datei_Umrechnung_Profil_Rot.png)
             - more in the said upper folder!
     4. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py
-        The folder [Daten](../Daten) contains an example of this. When the program is started, a plot is created!
+        The folder [Daten](Daten) contains an example of this. When the program is started, a plot is created!
         - Path and name are defined in the dictionary `data`
         - Start program: `python .\Profil_Kurvenschar_Weg-Rot_Magnetfeld.py`
         - [Example](Beispiel_Datein/Auswertung/Beispiel_Profil_Kurvenschar_Weg-Rot_Magnetfeld.png)

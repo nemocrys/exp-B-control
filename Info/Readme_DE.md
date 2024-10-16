@@ -1,5 +1,5 @@
 # exp-B-control
-Diese Programme wurden während der Bachelorarbeit von Vincent Funke am Institut für Kristallzüchtung (IKZ) erstellt. Dabei wurde die [Gruppe Modellexperimente](https://www.ikz-berlin.de/en/research/materials-science/section-fundamental-description#c486) unterstützt. Das Thema der Arbeit war:   
+Diese Programme wurden während der Bachelorarbeit von Vincent Funke am Institut für Kristallzüchtung (IKZ) erstellt. Dabei wurde die [Gruppe Modellexperimente](https://www.ikz-berlin.de/forschung-lehre/materialwissenschaften/sektion-fundamentale-beschreibung-1) unterstützt. Das Thema der Arbeit war:   
  
 *Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter*
 
@@ -92,8 +92,9 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - Bild wird gespeichert
         - Erzeugnisse (Beispiele):
             - Pfad:     Daten/Oszi-Daten_vom_2022_03_04
-            - Datei:    2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.txt ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Leistung.txt))
-                        2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.png ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Leistung.png))
+            - Datei:   
+            2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.txt ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Text_Datei_Leistung.txt))    
+            2022_03_04_Nr01_Leistung_Spannung_Vor-Widerstand.png ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Leistung.png))
     - hauptprogramm_Profil.py
         - `python .\hauptprogramm_Profil.py`
         - tkinter Umgebung öffnet sich
