@@ -105,19 +105,19 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
                         2022_03_10_#01_Profil_Bild.png ([Beispiel](../Beispiel_Datein/Hauptprogramm/Beispiel_Bild_Datei_Profil.png))
 
 3. Auswertungsprogramme:
-    1. Auswertung_Text-Datei.py
+    1. Auswertung_Text-Datei.py    
         Der Ordner [Daten](../Daten) beinhaltet ein Beispiel hierfür. Wenn das Programm gestartet wird, wird ein Plot erstellt!
         - File in Variable `lese_File` eingeben: z.B. `2022_03_04_#01_volt.txt`
         - Programm Starten: `python .\Auswertung_Text-Datei.py`
         - Eingabe der Hall-Spannung ohne Magnetfeld in mV und des Vorwiderstand in Ohm  (Konsoleneingabe)
         - Plot öffnet sich
         - [Beispiel](../Beispiel_Datein/Auswertung/Beispiel_Auswertung_Text-Datei.png)
-    2. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py
+    2. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py   
         Der Ordner [Daten](../Daten) beinhaltet ein Beispiel hierfür. Wenn das Programm gestartet wird, wird ein Plot erstellt!
         - Pfad und Bezeichnung werden im Dictionary `data` definiert
         - Programm Starten: `python .\Profil_Kurvenschar_Weg-Rot_Magnetfeld.py`
         - [Beispiel](../Beispiel_Datein/Auswertung/Beispiel_Profil_Kurvenschar_Zeit_Hall-Spannung.png)
-    3. Profil_Umrechnung.py
+    3. Profil_Umrechnung.py   
          Der Ordner [Daten](../Daten) beinhaltet ein Beispiel hierfür. Wenn das Programm gestartet wird, wird ein Plot erstellt! Das Ergebniss ist dort zu finden und wird für Punkt 4 verwendet!
         - Erzeugnisse (Beispiele):
             Pfad:   Daten/Profil-Umrechnung (Wird im Ausführungsordner erzeugt!)
@@ -128,7 +128,7 @@ Im Programm findet man verschiedene Befehle, teilweise auch auskommentiert die e
         - [Beispiel_1](../Beispiel_Datein/Auswertung/Beispiel_Bild_Datei_Umrechnung_Profil_Hub.png)
         - [Beispiel_2](../Beispiel_Datein/Auswertung/Beispiel_Bild_Datei_Umrechnung_Profil_Rot.png)
             - weitere im besagten oberen Ordner!
-    4. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py
+    4. Profil_Kurvenschar_Weg-Rot_Magnetfeld.py   
         Der Ordner [Daten](../Daten) beinhaltet ein Beispiel hierfür. Wenn das Programm gestartet wird, wird ein Plot erstellt!
         - Pfad und Bezeichnung werden im Dictionary `data` definiert
         - Programm Starten: `python .\Profil_Kurvenschar_Weg-Rot_Magnetfeld.py`
@@ -208,7 +208,7 @@ Link:
 
 ## Informationen
 
-Im Ordner **[Info](../Info)** befinden sich weitere Dokumente, die die Programme näher beschreiben. Folgende Themen sind dort in Deutsch und Englisch zu finden:
+Im Ordner **[Info](Info)** befinden sich weitere Dokumente, die die Programme näher beschreiben. Folgende Themen sind dort in Deutsch und Englisch zu finden:
 
 1. Erläuterung der Befehle:
     - [Zeige En](geräte_Befehle_etc_En.md)
