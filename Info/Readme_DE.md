@@ -213,7 +213,7 @@ Link:
 
 Im Ordner **[Info](../Info)** befinden sich weitere Dokumente, die die Programme näher beschreiben. Folgende Themen sind dort in Deutsch und Englisch zu finden:
 
-1. Erläuterung der Befehle:
+1. Erläuterung der Befehle und der Inbetriebnahme:
     - [Zeige En](geräte_Befehle_etc_En.md)
     - [Zeige De](geräte_Befehle_etc_DE.md)
 2. Erläuterung des Programmcode:

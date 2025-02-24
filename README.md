@@ -213,7 +213,7 @@ Link:
 
 In the folder **[Info](Info)** there are further documents that describe the programs in more detail. The following topics can be found there in German and English:
 
-1. Explanation of the commands:
+1. Explanation of the commands and commissioning:
     - [Show En](Info/geräte_Befehle_etc_En.md)
     - [Show De](Info/geräte_Befehle_etc_DE.md)
 2. Explanation of the program code:
