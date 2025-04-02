@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/456999566.svg)](https://doi.org/10.5281/zenodo.15127502)
+
 # exp-B-control
 
 Control software for measurement devices to analyze magnetic field, power and other electromagnetic parameters
