@@ -1,7 +1,8 @@
 # exp-B-control
-These programs were created during Vincent Funke's bachelor thesis at the Institute for Crystal Growth (IKZ). The [Model Experiments Group](https://www.ikz-berlin.de/en/research/materials-science/section-fundamental-description-1) was supported in this work. The topic of the thesis was:
 
-*Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter*
+Control software for measurement devices to analyze magnetic field, power and other electromagnetic parameters
+
+These programs were created during Vincent Funke's bachelor thesis "Resistive and inductive heating in a crystal growth furnace: automation using Python and measurements of electromagnetic parameters" (see [Documents](#Documents)). The [Model Experiments Group](https://www.ikz-berlin.de/en/research/materials-science/section-fundamental-description-1) at the Institute for Crystal Growth (IKZ) was supported in this work. 
 
 ## Experiment: Magnetic field control
 
@@ -205,9 +206,7 @@ The programs work with Python. Windows and Raspberry Pi were used.
 
 ## Documents
 
-Further information about the programs and their use, as well as information about the experiment, can be found in the bachelor thesis!
-
-Link:
+Further information about the programs and their use, as well as information about the experiment, can be found in Vincent Funke's Bachelor's thesis (in German): "Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter". It is available online [here](Bachelorarbeit_Vincent_Funke_ohneUS_Logo.pdf).
 
 ## Information
 
@@ -224,3 +223,9 @@ In the folder **[Info](Info)** there are further documents that describe the pro
     - [Show De](Info/Auswertung_De.md) 
 4. Readme in German
     - [Show](Info/Readme_DE.md)
+
+## Acknowledgements
+
+[This project](https://nemocrys.github.io/) has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No 851768).
+
+<img src="https://github.com/nemocrys/test-cz-induction/blob/main/EU-ERC.png">
