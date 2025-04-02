@@ -206,7 +206,7 @@ The programs work with Python. Windows and Raspberry Pi were used.
 
 ## Documents
 
-Further information about the programs and their use, as well as information about the experiment, can be found in Vincent Funke's Bachelor's thesis (in German): "Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter". It is available online [here]((https://nemocrys.github.io/papers/Bachelorarbeit_Vincent_Funke_ohneUS_Logo.pdf).
+Further information about the programs and their use, as well as information about the experiment, can be found in Vincent Funke's Bachelor's thesis (in German): "Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter". It is available online [here](https://nemocrys.github.io/papers/Bachelorarbeit_Vincent_Funke_ohneUS_Logo.pdf).
 
 ## Information
 
