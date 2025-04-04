@@ -1,7 +1,8 @@
 # exp-B-control
-Diese Programme wurden während der Bachelorarbeit von Vincent Funke am Institut für Kristallzüchtung (IKZ) erstellt. Dabei wurde die [Gruppe Modellexperimente](https://www.ikz-berlin.de/forschung-lehre/materialwissenschaften/sektion-fundamentale-beschreibung-1) unterstützt. Das Thema der Arbeit war:   
- 
-*Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter*
+
+Steuerungssoftware für Messgeräte zur Analyse von Magnetfeldern, Leistungen und anderen elektromagnetischen Parametern
+
+Diese Programme entstanden im Rahmen von Vincent Funkes Bachelorarbeit „Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter“ (siehe [Dokumente](#Dokumente)). Die [Gruppe Modellexperimente](https://www.ikz-berlin.de/research/materials-science/section-fundamental-description-1) am Institut für Kristallzüchtung (IKZ) wurde bei dieser Arbeit unterstützt.
 
 ## Experiment: Magnetfeldkontrolle 
 
@@ -205,9 +206,7 @@ Die Programme arbeiten mit Python. Genutzt wurden Windows und Raspberry Pi.
 
 ## Dokumente 
 
-Weitere Informationen zu den Programmen und ihrer Nutzung, sowie Informationen zu dem Experiment können in der Bachelorarbeit nachgelesen werden!
-
-Link: 
+Weitere Informationen zu den Programmen und deren Verwendung sowie Informationen zum Experiment finden Sie in der Bachelorarbeit von Vincent Funke: „Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter“. Es ist online [hier](https://nemocrys.github.io/papers/Bachelorarbeit_Vincent_Funke_ohneUS_Logo.pdf) verfügbar.
 
 ## Informationen
 
