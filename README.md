@@ -2,9 +2,9 @@
 
 # exp-B-control
 
-Control software for measurement devices to analyze magnetic field, power and other electromagnetic parameters
+Control software for measurement devices to analyze magnetic field, power and other electromagnetic parameters.
 
-These programs were created during Vincent Funke's Bachelor's thesis (in German) "Resistive and inductive heating in a crystal growth furnace: automation using Python and measurements of electromagnetic parameters" (see [Documents](#Documents)). The [Model Experiments Group](https://www.ikz-berlin.de/en/research/materials-science/section-fundamental-description-1) at the Institute for Crystal Growth (IKZ) was supported in this work. 
+These programs were created during Vincent Funke's Bachelor's thesis (in German) "Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter" (see [Documents](#Documents)). The [Model Experiments Group](https://www.ikz-berlin.de/en/research/materials-science/section-fundamental-description-1) at the Institute for Crystal Growth (IKZ) was supported in this work. 
 
 ## Experiment: Magnetic field control
 

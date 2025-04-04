@@ -1,6 +1,6 @@
 # exp-B-control
 
-Steuerungssoftware für Messgeräte zur Analyse von Magnetfeldern, Leistungen und anderen elektromagnetischen Parametern
+Steuerungssoftware für Messgeräte zur Analyse von Magnetfeldern, Leistungen und anderen elektromagnetischen Parametern.
 
 Diese Programme entstanden im Rahmen von Vincent Funkes Bachelorarbeit „Resistive und induktive Heizung in einer Kristallzüchtungsanlage: Automatisierung mit Python und Vermessung der elektromagnetischen Parameter“ (siehe [Dokumente](#Dokumente)). Die [Gruppe Modellexperimente](https://www.ikz-berlin.de/forschung-lehre/materialwissenschaften/sektion-fundamentale-beschreibung) am Institut für Kristallzüchtung (IKZ) wurde bei dieser Arbeit unterstützt.
 
